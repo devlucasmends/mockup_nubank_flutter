@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mockup_nubank_flutter/app/components/appbar_widget.dart';
+import 'package:mockup_nubank_flutter/app/components/bottom_navigation_widget.dart';
 import 'package:mockup_nubank_flutter/app/components/operations_widget.dart';
 import 'package:mockup_nubank_flutter/app/controllers/home_controler.dart';
 import 'package:mockup_nubank_flutter/app/models/account_data_model.dart';
@@ -14,7 +15,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final user = AccountDataModel();
-  IconData iconVision = FontAwesomeIcons.solidEye;
+
   final controller = HomeController.instance;
   final colorSub = const Color.fromARGB(255, 235, 235, 235);
 
@@ -24,9 +25,33 @@ class _HomeViewState extends State<HomeView> {
       animation: controller,
       builder: (context, child) {
         return Scaffold(
+          extendBody: true,
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(120),
-            child: _appBar(),
+            preferredSize: const Size.fromHeight(110),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const AppBarWidget(),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.deepPurple,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      'Olá, ${user.userName}',
+                      style: const TextStyle(
+                        color: Color(0xffffffff),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           body: ListView(
             children: [
@@ -41,81 +66,12 @@ class _HomeViewState extends State<HomeView> {
               Divider(thickness: 2, color: colorSub),
               _loanSection(),
               Divider(thickness: 2, color: colorSub),
+              _findMoreSection(),
             ],
           ),
+          bottomNavigationBar: const BottomNavigationWidget(),
         );
       },
-    );
-  }
-
-  Widget _appBar() {
-    // final controller = HomeController.instance;
-    return Column(
-      children: [
-        AppBar(
-          leadingWidth: 0,
-          automaticallyImplyLeading: true,
-          toolbarHeight: 120,
-          title: Padding(
-            padding: const EdgeInsets.only(left: 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                      splashColor: Colors.transparent,
-                      splashRadius: 20,
-                      padding: EdgeInsets.zero,
-                      constraints: const BoxConstraints(),
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.add_photo_alternate_outlined,
-                      ),
-                    ),
-                    const Spacer(),
-                    IconButton(
-                      onPressed: () => controller.changeVisibility(),
-                      icon: FaIcon(
-                        controller.isHidden
-                            ? FontAwesomeIcons.eyeSlash
-                            : FontAwesomeIcons.solidEye,
-                        size: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(
-                        FontAwesomeIcons.circleQuestion,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(
-                        FontAwesomeIcons.userPlus,
-                        color: Colors.white,
-                        size: 15,
-                      ),
-                    ),
-                  ],
-                ),
-                const Text(
-                  'Olá, Lucas',
-                  style: TextStyle(
-                    color: Color(0xffffffff),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -167,7 +123,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget _bankingOperationsSection() {
     return SizedBox(
-      height: 140,
+      height: 150,
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
@@ -518,6 +474,106 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _findMoreSection() {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: SizedBox(
+        height: 300,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Descubra mais',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 15, right: 10),
+                    child: GestureDetector(
+                      onTap: () =>
+                          // ignore: avoid_print
+                          print('Cliquei Card Descubra Mais N${index + 1}'),
+                      child: Container(
+                        height: 225,
+                        width: 195,
+                        decoration: BoxDecoration(
+                          color: colorSub,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 100,
+                                decoration: BoxDecoration(
+                                    color: colorSub,
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
+                                    ),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                        'assets/imgs/fotocontainer.jpg',
+                                      ),
+                                      fit: BoxFit.fill,
+                                    )),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 10, left: 10),
+                                child: Text(
+                                  'Nubank Celular Seguro',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(
+                                    top: 10, left: 10, bottom: 25),
+                                child: Text(
+                                  '100% cobertura, 0% estresse.\nSimule agora mesmo.',
+                                  style: TextStyle(
+                                    fontSize: 12.5,
+                                    color: Color(0xff70737b),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: OutlinedButton.styleFrom(
+                                      shape: const StadiumBorder(),
+                                      backgroundColor: Colors.deepPurple),
+                                  child: const Text('Conhecer'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

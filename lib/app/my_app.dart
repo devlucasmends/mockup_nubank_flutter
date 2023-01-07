@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mockup_nubank_flutter/app/views/home_view.dart';
+import 'package:mockup_nubank_flutter/app/views/investiments_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,7 +9,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.deepPurple),
-      home: const HomeView(),
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => const HomeView(),
+        '/investments': (context) => const InvestmentsView(),
+      },
+      // home: const InvestmentsView(),
       debugShowCheckedModeBanner: false,
     );
   }

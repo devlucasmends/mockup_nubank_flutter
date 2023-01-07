@@ -25,8 +25,8 @@ class OperationsWidget extends StatelessWidget {
               print(textClique);
             }),
             child: Container(
-              height: 70,
-              width: 70,
+              height: 80,
+              width: 80,
               decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 235, 235, 235),
                 shape: BoxShape.circle,

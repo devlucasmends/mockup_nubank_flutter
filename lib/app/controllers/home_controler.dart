@@ -4,6 +4,7 @@ class HomeController extends ChangeNotifier {
   static HomeController instance = HomeController();
 
   bool isHidden = false;
+  int valueCurrentNavigation = 0;
 
   changeVisibility() {
     isHidden = !isHidden;

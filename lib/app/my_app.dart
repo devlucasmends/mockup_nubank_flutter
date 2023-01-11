@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.deepPurple),
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
-        '/home': (context) => const HomeView(),
+        '/': (context) => const HomeView(),
         '/investments': (context) => const InvestmentsView(),
       },
       // home: const InvestmentsView(),

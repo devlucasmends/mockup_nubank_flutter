@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mockup_nubank_flutter/app/components/bottom_navigation_widget.dart';
+import 'package:mockup_nubank_flutter/app/components/investments_buttons.dart';
 import 'package:mockup_nubank_flutter/app/controllers/home_controler.dart';
 import 'package:mockup_nubank_flutter/app/models/account_data_model.dart';
 
@@ -42,129 +43,38 @@ class _InvestmentsViewState extends State<InvestmentsView> {
                   ),
                 ),
                 const SizedBox(height: 15),
-                GestureDetector(
-                  // ignore: avoid_print
-                  onTap: () => print('Cliquei Caixinhas'),
-                  child: Container(
-                    height: 50,
-                    width: width,
-                    decoration: BoxDecoration(
-                      color: colorSub,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          FaIcon(FontAwesomeIcons.box),
-                          SizedBox(width: 20),
-                          Text(
-                            'Caixinhas',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Expanded(child: SizedBox.shrink()),
-                          Text(
-                            'Conhecer',
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                InvestmentsButtons(
+                  width: width,
+                  colorSub: colorSub,
+                  icon: FontAwesomeIcons.box,
+                  textClique: 'Cliquei Caixinha',
+                  title: 'Caixinhas',
+                  textValue: 'Conhecer',
+                  colorText: Colors.deepPurpleAccent,
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                GestureDetector(
-                  // ignore: avoid_print
-                  onTap: () => print('Cliquei Investimentos'),
-                  child: Container(
-                    height: 50,
-                    width: width,
-                    decoration: BoxDecoration(
-                      color: colorSub,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const FaIcon(Icons.bar_chart),
-                          const SizedBox(width: 20),
-                          const Text(
-                            'Investimentos',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const Expanded(child: SizedBox.shrink()),
-                          Text(
-                            'R\$ ${controller.isHidden ? '****' : user.investimentsValue.toStringAsFixed(2).replaceAll('.', ',')}',
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                InvestmentsButtons(
+                  width: width,
+                  colorSub: colorSub,
+                  icon: Icons.bar_chart,
+                  textClique: 'Cliquei Investimentos',
+                  title: 'Investimentos',
+                  textValue:
+                      'R\$ ${controller.isHidden ? '****' : user.investimentsValue.toStringAsFixed(2).replaceAll('.', ',')}',
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                GestureDetector(
-                  // ignore: avoid_print
-                  onTap: () => print('Cliquei Cripto'),
-                  child: Container(
-                    height: 50,
-                    width: width,
-                    decoration: BoxDecoration(
-                      color: colorSub,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const FaIcon(FontAwesomeIcons.box),
-                          const SizedBox(width: 20),
-                          const Text(
-                            'Cripto',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const Expanded(child: SizedBox.shrink()),
-                          Text(
-                            'R\$ ${controller.isHidden ? '****' : user.criptoValue.toStringAsFixed(2).replaceAll('.', ',')}',
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                InvestmentsButtons(
+                  width: width,
+                  colorSub: colorSub,
+                  icon: Icons.currency_bitcoin_sharp,
+                  textClique: 'Cliquei Cripto',
+                  title: 'Cripto',
+                  textValue:
+                      'R\$ ${controller.isHidden ? '****' : user.criptoValue.toStringAsFixed(2).replaceAll('.', ',')}',
                 ),
                 const SizedBox(
                   height: 40,
@@ -179,88 +89,26 @@ class _InvestmentsViewState extends State<InvestmentsView> {
                 const SizedBox(
                   height: 25,
                 ),
-                GestureDetector(
-                  // ignore: avoid_print
-                  onTap: () => print('Cliquei Seguro de Vida'),
-                  child: Container(
-                    height: 50,
-                    width: width,
-                    decoration: BoxDecoration(
-                      color: colorSub,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          FaIcon(FontAwesomeIcons.heart),
-                          SizedBox(width: 20),
-                          Text(
-                            'Seguro vida',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Expanded(child: SizedBox.shrink()),
-                          Text(
-                            'Conhecer',
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                InvestmentsButtons(
+                  width: width,
+                  colorSub: colorSub,
+                  icon: FontAwesomeIcons.solidHeart,
+                  textClique: 'Cliquei Seguro de Vida',
+                  title: 'Seguro vida',
+                  textValue: 'Conhecer',
+                  colorText: Colors.deepPurpleAccent,
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                GestureDetector(
-                  // ignore: avoid_print
-                  onTap: () => print('Cliquei Seguro de Celular'),
-                  child: Container(
-                    height: 50,
-                    width: width,
-                    decoration: BoxDecoration(
-                      color: colorSub,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          FaIcon(Icons.phone_android),
-                          SizedBox(width: 20),
-                          Text(
-                            'Seguro celular',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Expanded(child: SizedBox.shrink()),
-                          Text(
-                            'Conhecer',
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                InvestmentsButtons(
+                  width: width,
+                  colorSub: colorSub,
+                  icon: Icons.phone_android,
+                  textClique: 'Cliquei Seguro de Celular',
+                  title: 'Seguro celular',
+                  textValue: 'Conhecer',
+                  colorText: Colors.deepPurpleAccent,
                 ),
               ],
             ),

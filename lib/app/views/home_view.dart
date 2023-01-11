@@ -94,7 +94,7 @@ class _HomeViewState extends State<HomeView> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Expanded(child: SizedBox.shrink()),
+                  Spacer(),
                   Padding(
                     padding: EdgeInsets.only(top: 8, right: 10),
                     child: FaIcon(
@@ -104,7 +104,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ],
               ),
-              const Expanded(child: SizedBox.shrink()),
+              const Spacer(),
               Text(
                 controller.isHidden
                     ? '****'
@@ -171,13 +171,11 @@ class _HomeViewState extends State<HomeView> {
           left: 15.0, top: 15.0, right: 35.0, bottom: 15.0),
       child: GestureDetector(
         onTap: () {
-          // ignore: avoid_print
-          print('Meus Cartões');
+          debugPrint('Meus Cartões');
         },
         child: ElevatedButton(
           onPressed: () {
-            // ignore: avoid_print
-            print('Cliquei Meus Cartões');
+            debugPrint('Cliquei Meus Cartões');
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: colorSub,
@@ -285,8 +283,7 @@ class _HomeViewState extends State<HomeView> {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: GestureDetector(
-        // ignore: avoid_print
-        onTap: () => print('Cliquei Área Cartão de Crédito'),
+        onTap: () => debugPrint('Cliquei Área Cartão de Crédito'),
         child: Container(
           color: Colors.transparent,
           child: Column(
@@ -301,7 +298,7 @@ class _HomeViewState extends State<HomeView> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Expanded(child: SizedBox()),
+                  Spacer(),
                   Padding(
                     padding: EdgeInsets.only(top: 8, right: 10),
                     child: FaIcon(
@@ -335,8 +332,7 @@ class _HomeViewState extends State<HomeView> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // ignore: avoid_print
-                  print('Parcelar Compras');
+                  debugPrint('Parcelar Compras');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: colorSub,
@@ -376,8 +372,7 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(height: 15),
             ElevatedButton(
                 onPressed: () {
-                  // ignore: avoid_print
-                  print('Cliquei Assistente de Pagamentos');
+                  debugPrint('Cliquei Assistente de Pagamentos');
                 },
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(
@@ -406,9 +401,7 @@ class _HomeViewState extends State<HomeView> {
                         fontSize: 15,
                       ),
                     ),
-                    const Expanded(
-                      child: SizedBox.shrink(),
-                    ),
+                    const Spacer(),
                     Container(
                       height: 20,
                       width: 40,
@@ -439,8 +432,7 @@ class _HomeViewState extends State<HomeView> {
         height: 70,
         color: Colors.transparent,
         child: GestureDetector(
-          // ignore: avoid_print
-          onTap: () => print('Cliquei Área Empréstimo'),
+          onTap: () => debugPrint('Cliquei Área Empréstimo'),
           child: Container(
             color: Colors.transparent,
             child: Column(
@@ -455,7 +447,7 @@ class _HomeViewState extends State<HomeView> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Expanded(child: SizedBox.shrink()),
+                    Spacer(),
                     Padding(
                       padding: EdgeInsets.only(top: 8, right: 10),
                       child: FaIcon(
@@ -503,9 +495,8 @@ class _HomeViewState extends State<HomeView> {
                   return Padding(
                     padding: const EdgeInsets.only(top: 15, right: 10),
                     child: GestureDetector(
-                      onTap: () =>
-                          // ignore: avoid_print
-                          print('Cliquei Card Descubra Mais N${index + 1}'),
+                      onTap: () => debugPrint(
+                          'Cliquei Card Descubra Mais N${index + 1}'),
                       child: Container(
                         height: 225,
                         width: 195,

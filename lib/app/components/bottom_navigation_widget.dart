@@ -28,7 +28,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           onTap: (value) {
             controller.valueCurrentNavigation = value;
             if (value == 0) {
-              Navigator.of(context).pushReplacementNamed('/home');
+              Navigator.of(context).pushReplacementNamed('/');
             } else if (value == 1) {
               Navigator.of(context).pushReplacementNamed('/investments');
             } else if (value == 2) {

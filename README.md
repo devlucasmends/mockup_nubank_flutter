@@ -1,16 +1,9 @@
-# mockup_nubank_flutter
+# Mockup Clone Nubank
 
-A new Flutter project.
+A flutter project cloning Nubank's Home
 
-## Getting Started
+## About
 
-This project is a starting point for a Flutter application.
+The objective of this project is to put into practice the knowledge acquired in Flutter!!
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

@@ -19,6 +19,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
         return Column(
           children: [
             AppBar(
+              elevation: 0,
               leadingWidth: 0,
               automaticallyImplyLeading: true,
               toolbarHeight: 60,

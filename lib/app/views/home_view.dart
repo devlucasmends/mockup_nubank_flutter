@@ -5,6 +5,7 @@ import 'package:mockup_nubank_flutter/app/components/bottom_navigation_widget.da
 import 'package:mockup_nubank_flutter/app/components/operations_widget.dart';
 import 'package:mockup_nubank_flutter/app/controllers/home_controler.dart';
 import 'package:mockup_nubank_flutter/app/models/account_data_model.dart';
+import 'package:mockup_nubank_flutter/app/views/investiments_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -26,47 +27,47 @@ class _HomeViewState extends State<HomeView> {
       builder: (context, child) {
         return Scaffold(
           extendBody: true,
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(110),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const AppBarWidget(),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.deepPurple,
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text(
-                      'Olá, ${user.userName}',
-                      style: const TextStyle(
-                        color: Color(0xffffffff),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+          appBar: const PreferredSize(
+            preferredSize: Size.fromHeight(60),
+            child: AppBarWidget(),
+          ),
+          body: IndexedStack(
+            index: controller.valueCurrentNavigation,
+            children: [
+              ListView(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.deepPurple,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        'Olá, ${user.userName}',
+                        style: const TextStyle(
+                          color: Color(0xffffffff),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          body: ListView(
-            children: [
-              _accountSection(),
-              _bankingOperationsSection(),
-              _userCards(),
-              _newsCards(),
-              Divider(thickness: 2, color: colorSub),
-              _credCardsScetion(),
-              Divider(thickness: 2, color: colorSub),
-              _followToo(),
-              Divider(thickness: 2, color: colorSub),
-              _loanSection(),
-              Divider(thickness: 2, color: colorSub),
-              _findMoreSection(),
+                  _accountSection(),
+                  _bankingOperationsSection(),
+                  _userCards(),
+                  _newsCards(),
+                  Divider(thickness: 2, color: colorSub),
+                  _credCardsScetion(),
+                  Divider(thickness: 2, color: colorSub),
+                  _followToo(),
+                  Divider(thickness: 2, color: colorSub),
+                  _loanSection(),
+                  Divider(thickness: 2, color: colorSub),
+                  _findMoreSection(),
+                ],
+              ),
+              const InvestmentsView(),
             ],
           ),
           bottomNavigationBar: const BottomNavigationWidget(),

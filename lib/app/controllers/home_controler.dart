@@ -10,4 +10,9 @@ class HomeController extends ChangeNotifier {
     isHidden = !isHidden;
     notifyListeners();
   }
+
+  changePage(int index) {
+    valueCurrentNavigation = index;
+    notifyListeners();
+  }
 }

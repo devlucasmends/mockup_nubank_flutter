@@ -26,10 +26,6 @@ class _InvestmentsViewState extends State<InvestmentsView> {
       animation: controller,
       builder: (context, child) {
         return Scaffold(
-          appBar: const PreferredSize(
-            preferredSize: Size.fromHeight(60),
-            child: AppBarWidget(),
-          ),
           body: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
@@ -113,7 +109,6 @@ class _InvestmentsViewState extends State<InvestmentsView> {
               ],
             ),
           ),
-          bottomNavigationBar: const BottomNavigationWidget(),
         );
       },
     );

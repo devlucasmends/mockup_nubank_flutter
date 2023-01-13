@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mockup_nubank_flutter/app/views/home_view.dart';
+import 'package:mockup_nubank_flutter/app/views/investiments_view.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../controllers/home_controler.dart';
 
@@ -15,6 +18,11 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   int valueCurrent = 0;
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: controller,
@@ -26,14 +34,8 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           onTap: (value) {
-            controller.valueCurrentNavigation = value;
-            if (value == 0) {
-              Navigator.of(context).pushReplacementNamed('/');
-            } else if (value == 1) {
-              Navigator.of(context).pushReplacementNamed('/investments');
-            } else if (value == 2) {
-              setState(() {}); // setState just to illustrate purple icon
-            }
+            // controller.valueCurrentNavigation = value;
+            controller.changePage(value);
           },
           items: const [
             BottomNavigationBarItem(

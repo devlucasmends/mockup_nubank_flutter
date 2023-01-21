@@ -9,8 +9,8 @@ class AccountDataModel {
 
   AccountDataModel({
     this.userName = 'Lucas',
-    this.accountBalance = 1200.0,
-    this.invoiceAmount = 500.0,
+    this.accountBalance = 1000.0,
+    this.invoiceAmount = 1500.0,
     this.creditLimit = 1500.0,
     this.loanLimit = 5000.0,
     this.investimentsValue = 200.0,

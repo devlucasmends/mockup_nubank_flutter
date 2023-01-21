@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mockup_nubank_flutter/app/views/home_view.dart';
+import 'package:mockup_nubank_flutter/app/views/navigation_view.dart';
 import 'package:mockup_nubank_flutter/app/views/investiments_view.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -34,7 +34,6 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           onTap: (value) {
-            // controller.valueCurrentNavigation = value;
             controller.changePage(value);
           },
           items: const [

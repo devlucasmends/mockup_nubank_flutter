@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class OperationsWidget extends StatelessWidget {
+class OperationsComponents extends StatelessWidget {
   final FaIcon icon;
   final String text;
   final String textClique;
 
-  const OperationsWidget({
+  const OperationsComponents({
     super.key,
     required this.icon,
     required this.text,
@@ -21,8 +21,7 @@ class OperationsWidget extends StatelessWidget {
           padding: const EdgeInsets.all(5.0),
           child: GestureDetector(
             onTap: (() {
-              // ignore: avoid_print
-              print(textClique);
+              debugPrint(textClique);
             }),
             child: Container(
               height: 80,

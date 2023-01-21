@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mockup_nubank_flutter/app/components/appbar_widget.dart';
-import 'package:mockup_nubank_flutter/app/components/bottom_navigation_widget.dart';
-import 'package:mockup_nubank_flutter/app/components/operations_widget.dart';
-import 'package:mockup_nubank_flutter/app/controllers/home_controler.dart';
-import 'package:mockup_nubank_flutter/app/models/account_data_model.dart';
-import 'package:mockup_nubank_flutter/app/views/investiments_view.dart';
+
+import '../components/operations_components.dart';
+import '../controllers/home_controler.dart';
+import '../models/account_data_model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -16,7 +14,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final user = AccountDataModel();
-
   final controller = HomeController.instance;
   final colorSub = const Color.fromARGB(255, 235, 235, 235);
 
@@ -24,55 +21,41 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: controller,
-      builder: (context, child) {
-        return Scaffold(
-          extendBody: true,
-          appBar: const PreferredSize(
-            preferredSize: Size.fromHeight(60),
-            child: AppBarWidget(),
-          ),
-          body: IndexedStack(
-            index: controller.valueCurrentNavigation,
-            children: [
-              ListView(
-                children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    color: Colors.deepPurple,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text(
-                        'Olá, ${user.userName}',
-                        style: const TextStyle(
-                          color: Color(0xffffffff),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
+      builder: (context, child) => Scaffold(
+        body: ListView(
+          children: [
+            Container(
+              alignment: Alignment.centerLeft,
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.deepPurple,
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                  'Olá, ${user.userName}',
+                  style: const TextStyle(
+                    color: Color(0xffffffff),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
                   ),
-                  _accountSection(),
-                  _bankingOperationsSection(),
-                  _userCards(),
-                  _newsCards(),
-                  Divider(thickness: 2, color: colorSub),
-                  _credCardsScetion(),
-                  Divider(thickness: 2, color: colorSub),
-                  _followToo(),
-                  Divider(thickness: 2, color: colorSub),
-                  _loanSection(),
-                  Divider(thickness: 2, color: colorSub),
-                  _findMoreSection(),
-                ],
+                ),
               ),
-              const InvestmentsView(),
-            ],
-          ),
-          bottomNavigationBar: const BottomNavigationWidget(),
-        );
-      },
+            ),
+            _accountSection(),
+            _bankingOperationsSection(),
+            _userCards(),
+            _newsCards(),
+            Divider(thickness: 2, color: colorSub),
+            _credCardsScetion(),
+            Divider(thickness: 2, color: colorSub),
+            _followToo(),
+            Divider(thickness: 2, color: colorSub),
+            _loanSection(),
+            Divider(thickness: 2, color: colorSub),
+            _findMoreSection(),
+          ],
+        ),
+      ),
     );
   }
 
@@ -130,32 +113,32 @@ class _HomeViewState extends State<HomeView> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: const [
-            OperationsWidget(
+            OperationsComponents(
               icon: FaIcon(FontAwesomeIcons.pix),
               text: 'Área Pix',
               textClique: 'Cliquei Pix',
             ),
-            OperationsWidget(
+            OperationsComponents(
               icon: FaIcon(FontAwesomeIcons.barcode),
               text: 'Pagar',
               textClique: 'Cliquei Pagar',
             ),
-            OperationsWidget(
+            OperationsComponents(
               icon: FaIcon(FontAwesomeIcons.handHoldingDollar),
               text: 'Pegar\nemprestado',
               textClique: 'Cliquei Emprestimo',
             ),
-            OperationsWidget(
+            OperationsComponents(
               icon: FaIcon(FontAwesomeIcons.moneyBillTransfer),
               text: 'Transferir',
               textClique: 'Cliquei Transferir',
             ),
-            OperationsWidget(
+            OperationsComponents(
               icon: FaIcon(FontAwesomeIcons.moneyBill),
               text: 'Depositar',
               textClique: 'Cliquei Depositar',
             ),
-            OperationsWidget(
+            OperationsComponents(
               icon: FaIcon(FontAwesomeIcons.pix),
               text: 'Área Pix',
               textClique: 'Cliquei Pix',

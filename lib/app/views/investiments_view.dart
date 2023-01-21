@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mockup_nubank_flutter/app/components/bottom_navigation_widget.dart';
+import 'package:mockup_nubank_flutter/app/widgets/bottom_navigation_widget.dart';
 import 'package:mockup_nubank_flutter/app/components/investments_buttons.dart';
 import 'package:mockup_nubank_flutter/app/controllers/home_controler.dart';
 import 'package:mockup_nubank_flutter/app/models/account_data_model.dart';
 
-import '../components/appbar_widget.dart';
+import '../widgets/appbar_widget.dart';
 
 class InvestmentsView extends StatefulWidget {
   const InvestmentsView({super.key});
